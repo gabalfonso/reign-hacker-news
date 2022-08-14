@@ -12,6 +12,10 @@ code {
         monospace;
 }
 
+.main-area {
+    background-color: #fcfcfc;
+}
+
 .Rectangle {
     width: 550px;
     height: 90px;
@@ -85,4 +89,10 @@ img.icon-time-small {
     height: 16px;
     margin: 0 8px 6px 0;
     object-fit: contain;
+}
+
+.card-like-background {
+    padding: 0 0 0 0;
+    opacity: 0.06;
+    background-color: #606060;
 }
