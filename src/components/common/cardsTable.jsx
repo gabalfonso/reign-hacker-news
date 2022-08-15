@@ -28,7 +28,7 @@ const CardsTable = ({
             if (isFavourite || !showOnlyFavourites) {
                 return (
                     <div
-                        className="col-sm-12 col-md-12 col-lg-6 p-3"
+                        className="col-sm-10 col-md-10 col-lg-5 p-3"
                         key={item[idPath]}
                     >
                         <Card
@@ -47,7 +47,11 @@ const CardsTable = ({
         }
     };
 
-    return <div className="row">{items.map((item) => renderCard(item))}</div>;
+    return (
+        <div className="row justify-content-center">
+            {items.map((item) => renderCard(item))}
+        </div>
+    );
 };
 
 export default CardsTable;

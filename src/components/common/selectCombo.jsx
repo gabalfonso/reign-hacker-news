@@ -9,7 +9,6 @@ const SelectCombo = ({ options, optionSelected, onOptionSelected }) => {
         );
     };
 
-    console.log("opción seleccionada:" + optionSelected);
     return (
         <select
             className="form-select"

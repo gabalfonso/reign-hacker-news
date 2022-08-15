@@ -19,10 +19,13 @@ function App() {
 
     return (
         <div className="App">
-            <div className="Rectangle-Header">
-                <span className="HACKER-NEWS">HACKER NEWS</span>
+            <div className="Rectangle-Header align-items-center">
+                <div className="row justify-content-center align-items-center">
+                    <div className="col-10 text-start">
+                        <span className="HACKER-NEWS">HACKER NEWS</span>
+                    </div>
+                </div>
             </div>
-
             <main className="main-area">
                 <Comments />
             </main>

@@ -87,7 +87,6 @@ const Comments = (props) => {
 
     useEffect(() => {
         //Write queryWord to localStorage
-        console.log("write queryWord to localStorage: " + queryWord);
         localStorage.setItem("queryWord", JSON.stringify(queryWord));
     }, [queryWord]);
 
@@ -108,7 +107,6 @@ const Comments = (props) => {
     };
 
     const handleOptionSelected = (optionSelected) => {
-        console.log("option selected: " + optionSelected);
         setQueryWord(optionSelected);
     };
 
@@ -118,8 +116,8 @@ const Comments = (props) => {
                 <div>...Data Loading.....</div>
             ) : (
                 <div>
-                    <div className="row justify-content-center">
-                        <div className="col-sm-3">
+                    <div className="row justify-content-center p-3">
+                        <div className="col-sm-4">
                             <ButtonsSelector
                                 key={1}
                                 options={[
@@ -135,18 +133,22 @@ const Comments = (props) => {
                             />
                         </div>
                     </div>
-                    <div className="row justify-content-start">
-                        <div className="col-sm-3">
-                            <SelectCombo
-                                key={2}
-                                options={[
-                                    QUERY_WORD_1,
-                                    QUERY_WORD_2,
-                                    QUERY_WORD_3,
-                                ]}
-                                optionSelected={queryWord}
-                                onOptionSelected={handleOptionSelected}
-                            />
+                    <div className="row justify-content-center">
+                        <div className="col-sm-10">
+                            <div className="row justify-content-start">
+                                <div className="col-8 col-sm-6 col-md-5 col-lg-3">
+                                    <SelectCombo
+                                        key={2}
+                                        options={[
+                                            QUERY_WORD_1,
+                                            QUERY_WORD_2,
+                                            QUERY_WORD_3,
+                                        ]}
+                                        optionSelected={queryWord}
+                                        onOptionSelected={handleOptionSelected}
+                                    />
+                                </div>
+                            </div>
                         </div>
                     </div>
                     {/* <span>Title: {todo ? todo.length : "no Title Found"}</span> */}

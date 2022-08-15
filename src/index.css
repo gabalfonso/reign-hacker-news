@@ -13,6 +13,8 @@ code {
 }
 
 .main-area {
+    width: 100%;
+    margin: 0 0 0 0;
     background-color: #fcfcfc;
 }
 
@@ -28,18 +30,13 @@ code {
 }
 
 .Rectangle-Header {
-    width: 1440px;
     height: 114px;
-    margin: 0 0 70px;
-    padding: 44px 1082px 42px 150px;
+    margin: 0 0 3px;
     box-shadow: 0 1px 4px 0 rgba(0, 21, 41, 0.12);
     background-image: linear-gradient(to bottom, #ececec -32%, #fff 124%);
 }
 
 .HACKER-NEWS {
-    width: 208px;
-    height: 28px;
-    object-fit: contain;
     font-family: Baskerville;
     font-size: 28px;
     font-weight: normal;
@@ -51,14 +48,13 @@ code {
 }
 
 .card-rectangle {
-    /* width: 550px;
-    height: 90px;
-    margin: 15px 15px 15px 15px;
-    padding: 0 0 0 26px; */
-    opacity: 0.8;
     border-radius: 6px;
-    border: solid 1px #979797;
+    border: 1px solid rgba(151, 151, 151, 0.8);
     background-color: #fff;
+}
+
+.card-rectangle:hover {
+    opacity: 0.7;
 }
 
 .card-creation-info-label {

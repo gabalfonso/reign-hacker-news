@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 import "@fontsource/roboto";
 import IconTimeSmall from "../../assets/icon-time-small.svg";
 import IconLikeSolid from "../../assets/icon-like-solid.svg";
@@ -14,36 +15,40 @@ const Card = ({
     isFavourite,
     onLikeClicked,
 }) => {
+    //const [isHovering, setIsHovering] = useState(false);
+
     const onCardClick = () => {
-        console.log("card clickeado:" + itemId);
         window.open(urlLink, "_blank", "noopener,noreferrer");
     };
 
     return (
         <div
+            key={itemId}
             className="card-rectangle"
             onClick={() => onCardClick(itemId, urlLink)}
         >
-            <div className="container">
-                <div className="row align-items-center">
-                    <div className="col-sm-10 p-3 text-start">
-                        <div className="row">
-                            <div className="col-12">
-                                <img src={IconTimeSmall} alt="..." />
-                                <small className="card-creation-info-label">
-                                    {getTimeSinceCreation(creationDate)} by{" "}
-                                    {creator}
-                                </small>
-                            </div>
+            <div className="row align-items-center">
+                <div className="col-10 p-3 text-start">
+                    <div className="row">
+                        <div className="col-12 ps-4">
+                            <img src={IconTimeSmall} alt="..." />
+                            <small className="card-creation-info-label">
+                                {getTimeSinceCreation(creationDate)} by{" "}
+                                {creator}
+                            </small>
                         </div>
-                        <div className="row">
+                    </div>
+                    <div className="row">
+                        <div className="col-12 ps-4">
                             <p className="card-text card-text-principal">
                                 {label}
                             </p>
                         </div>
                     </div>
-                    <div className="col-sm-2 ">
-                        <div className="container">
+                </div>
+                <div className="col-2">
+                    <div className="row mh-100">
+                        <div className="col">
                             <img
                                 style={{ cursor: "pointer" }}
                                 src={
