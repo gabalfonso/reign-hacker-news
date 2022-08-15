@@ -91,8 +91,9 @@ const Comments = (props) => {
         localStorage.setItem("queryWord", JSON.stringify(queryWord));
     }, [queryWord]);
 
-    const handleLikeClicked = (commentId, isFavourite) => {
+    const handleLikeClicked = (event, commentId, isFavourite) => {
         // console.log("Like clicked");
+        event.stopPropagation();
         if (isFavourite) {
             setFavourites(favourites.filter((f) => f !== commentId));
         } else {

@@ -14,12 +14,16 @@ const Card = ({
     isFavourite,
     onLikeClicked,
 }) => {
-    const onClick = () => {
+    const onCardClick = () => {
         console.log("card clickeado:" + itemId);
+        window.open(urlLink, "_blank", "noopener,noreferrer");
     };
 
     return (
-        <div className="card-rectangle" onClick={() => onClick()}>
+        <div
+            className="card-rectangle"
+            onClick={() => onCardClick(itemId, urlLink)}
+        >
             <div className="container">
                 <div className="row align-items-center">
                     <div className="col-sm-10 p-3 text-start">
@@ -47,8 +51,8 @@ const Card = ({
                                         ? IconLikeSolid
                                         : IconLikeRegular
                                 }
-                                onClick={() =>
-                                    onLikeClicked(itemId, isFavourite)
+                                onClick={(event) =>
+                                    onLikeClicked(event, itemId, isFavourite)
                                 }
                                 alt="..."
                             />
