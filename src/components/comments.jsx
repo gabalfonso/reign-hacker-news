@@ -27,9 +27,9 @@ const Comments = (props) => {
             if (queryWord != "") {
                 setLoading(true);
                 const realPageSelected = pageSelected - 1;
-                console.log(
-                    `https://hn.algolia.com/api/v1/search_by_date?query=${queryWord}&page=${realPageSelected}`
-                );
+                // console.log(
+                //     `https://hn.algolia.com/api/v1/search_by_date?query=${queryWord}&page=${realPageSelected}`
+                // );
                 fetch(
                     `https://hn.algolia.com/api/v1/search_by_date?query=${queryWord}&page=${realPageSelected}`
                 )
