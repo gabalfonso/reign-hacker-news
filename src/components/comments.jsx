@@ -10,6 +10,7 @@ const BUTTON_SHOW_MY_FAVOURITES = "My faves";
 const QUERY_WORD_1 = "Angular";
 const QUERY_WORD_2 = "Reactjs";
 const QUERY_WORD_3 = "Vuejs";
+const DEFAULT_QUERY_WORD = QUERY_WORD_1;
 const Comments = (props) => {
     const [todo, setTodo] = useState({});
     const [loading, setLoading] = useState(false);
@@ -17,31 +18,36 @@ const Comments = (props) => {
     const [totalPages, setTotalPages] = useState(0);
     const [favourites, setFavourites] = useState([]);
     const [showOnlyFavourites, setShowOnlyFavourites] = useState(false);
-    const [queryWord, setQueryWord] = useState("angular");
+    const [queryWord, setQueryWord] = useState("");
 
     useEffect(() => {
         //Request data from backend
         const fetchData = () => {
             // console.log("hola. Page selected:" + pageSelected);
-            setLoading(true);
-            const realPageSelected = pageSelected - 1;
-            fetch(
-                `https://hn.algolia.com/api/v1/search_by_date?query=${queryWord}&page=${realPageSelected}`
-            )
-                .then((response) => {
-                    return response.json();
-                })
-                .then((data) => {
-                    //console.log(data.hits[0]);
-                    setTodo(data.hits);
-                    if (data.nbPages !== 0 || pageSelected === 0)
-                        setTotalPages(data.nbPages);
-                    setLoading(false);
-                })
-                .catch((error) => {
-                    console.log(error);
-                    setLoading(false);
-                });
+            if (queryWord != "") {
+                setLoading(true);
+                const realPageSelected = pageSelected - 1;
+                console.log(
+                    `https://hn.algolia.com/api/v1/search_by_date?query=${queryWord}&page=${realPageSelected}`
+                );
+                fetch(
+                    `https://hn.algolia.com/api/v1/search_by_date?query=${queryWord}&page=${realPageSelected}`
+                )
+                    .then((response) => {
+                        return response.json();
+                    })
+                    .then((data) => {
+                        //console.log(data.hits[0]);
+                        setTodo(data.hits);
+                        if (data.nbPages !== 0 || pageSelected === 0)
+                            setTotalPages(data.nbPages);
+                        setLoading(false);
+                    })
+                    .catch((error) => {
+                        console.log(error);
+                        setLoading(false);
+                    });
+            }
         };
 
         fetchData();
@@ -63,8 +69,10 @@ const Comments = (props) => {
         }
 
         const queryWordStg = JSON.parse(localStorage.getItem("queryWord"));
-        if (queryWordStg) {
+        if (queryWordStg && queryWordStg !== "") {
             setQueryWord(queryWordStg);
+        } else {
+            setQueryWord(DEFAULT_QUERY_WORD);
         }
     }, []);
 

@@ -40,6 +40,7 @@ const Card = ({
                     <div className="row">
                         <div className="col-12 ps-4">
                             <p className="card-text card-text-principal">
+                                {itemId}
                                 {label}
                             </p>
                         </div>
