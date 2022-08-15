@@ -1,5 +1,4 @@
 import React from "react";
-import { useState } from "react";
 import "@fontsource/roboto";
 import IconTimeSmall from "../../assets/icon-time-small.svg";
 import IconLikeSolid from "../../assets/icon-like-solid.svg";

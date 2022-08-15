@@ -59,7 +59,7 @@ const Comments = (props) => {
             localStorage.getItem("showOnlyFavourites")
         );
         if (showOnlyFavouritesStg) {
-            setShowOnlyFavourites(showOnlyFavourites);
+            setShowOnlyFavourites(showOnlyFavouritesStg);
         }
 
         const queryWordStg = JSON.parse(localStorage.getItem("queryWord"));
